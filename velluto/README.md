@@ -23,6 +23,15 @@ Il catalogo dimostrativo usa esclusivamente gli **open movie della Blender Found
 | Episodi | riproduzione automatica dell'episodio successivo con conto alla rovescia (disattivabile dal profilo), marcatori intro/titoli di coda |
 | Pannello admin | KPI (utenti, abbonati, ricavi, riproduzioni, schermi attivi, coda), catalogo (crea/modifica/pubblica/elimina titoli, stagioni, episodi), upload sorgenti in streaming, codifica con avanzamento live, ricodifica, gestione utenti (ruolo, piano) e piani (prezzo, qualità, HDR, schermi) |
 
+## Avvio senza riga di comando (GitHub Codespaces)
+
+1. Su GitHub apri il repository, scegli il branch che contiene `velluto/`.
+2. **Code → Codespaces → ⋯ → New with options**, configurazione **"Velluto (streaming demo)"**, macchina 4 core → **Create codespace**.
+3. La prima creazione scarica i film e li codifica da sola (circa 20-30 minuti); poi il sito si apre
+   automaticamente in una nuova scheda (porta 3000). Le credenziali sono nel file
+   `velluto/data/demo-credentials.txt`, visibile nell'elenco file a sinistra.
+4. Alle riaperture successive il sito riparte da solo in pochi secondi.
+
 ## Avvio
 
 Requisiti: Node ≥ 22.18, ffmpeg con libx264/libx265/zscale (Ubuntu: `apt-get install ffmpeg`).
