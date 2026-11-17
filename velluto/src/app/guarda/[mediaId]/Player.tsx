@@ -169,7 +169,10 @@ export function Player({ mediaId }: { mediaId: number }) {
     else [...video.current!.textTracks].forEach((t, k) => (t.mode = k === id ? "showing" : "disabled"));
   }, []);
   const chooseLevel = (l: number) => { setLevel(l); setMenu(null); if (hlsRef.current) hlsRef.current.currentLevel = l; };
-  const showUi = useCallback(() => { setUi(true); clearTimeout(hideTimer.current); hideTimer.current = setTimeout(() => { if (!video.current?.paused) { setUi(false); setMenu(null); } }, 3000); }, []);
+  const menuOpen = useRef(false);
+  useEffect(() => { menuOpen.current = menu !== null; }, [menu]);
+  // auto-hide controls while playing, but never while a settings menu is open
+  const showUi = useCallback(() => { setUi(true); clearTimeout(hideTimer.current); hideTimer.current = setTimeout(() => { if (!video.current?.paused && !menuOpen.current) setUi(false); }, 3000); }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

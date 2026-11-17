@@ -89,7 +89,7 @@ test.describe("auth + subscriptions", () => {
     await page.getByLabel("Email").fill(USERS.plus);
     await page.getByLabel("Password").fill("wrong-password");
     await page.getByRole("button", { name: "Accedi" }).click();
-    await expect(page.getByRole("alert")).toContainText("Credenziali non valide");
+    await expect(page.getByRole("alert").filter({ hasText: "Credenziali" })).toContainText("Credenziali non valide");
     await login(page, USERS.plus);
     await page.getByRole("button", { name: "Menu account" }).click();
     await page.getByRole("menuitem", { name: "Esci" }).click();
@@ -108,9 +108,9 @@ test.describe("player", () => {
     await page.mouse.move(200, 200);
     await page.getByRole("button", { name: "Qualità" }).click();
     const items = page.getByRole("menuitemradio");
-    await expect(items.filter({ hasText: "1080p" })).toHaveCount(1);
+    await expect(items.filter({ hasText: /^1080p/ })).toHaveCount(1);
     await expect(items.filter({ hasText: "4K" })).toHaveCount(0); // Plus = max 1080p
-    await items.filter({ hasText: "720p" }).click();
+    await items.filter({ hasText: /^720p/ }).click();
     await page.getByRole("button", { name: "Velocità" }).click();
     await page.getByRole("menuitemradio", { name: "1.5×" }).click();
     expect(await video.evaluate((v: HTMLVideoElement) => v.playbackRate)).toBe(1.5);
