@@ -244,10 +244,10 @@ export function Player({ mediaId }: { mediaId: number }) {
         </div>
       )}
 
-      {inIntro && <button onClick={() => seek(info!.intro!.end)} className="btn btn-ghost absolute bottom-32 right-6 ring-1 ring-cream/40" data-testid="skip-intro">Salta intro<SkipForward className="h-4 w-4" /></button>}
+      {inIntro && <button onClick={() => seek(info!.intro!.end)} className="btn btn-ghost absolute bottom-32 right-6 z-20 ring-1 ring-cream/40" data-testid="skip-intro">Salta intro<SkipForward className="h-4 w-4" /></button>}
 
       {nextZone && next && (
-        <div className="card absolute bottom-32 right-4 w-[min(22rem,calc(100vw-2rem))] p-4 animate-fade-up md:right-6" data-testid="up-next">
+        <div className="card absolute bottom-32 right-4 z-20 w-[min(22rem,calc(100vw-2rem))] p-4 animate-fade-up md:right-6" data-testid="up-next">
           <p className="text-xs uppercase tracking-widest text-gold">Prossimo episodio</p>
           <p className="mt-1 font-medium">S{next.season}:E{next.number} · {next.name}</p>
           <div className="mt-3 flex gap-2">
