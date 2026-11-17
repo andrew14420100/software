@@ -1,0 +1,4 @@
+[
+  { "method": "POST", "path": "/api/messages", "collection": "messages", "op": "create", "note": "inferred from the contact form (fields email, message); original replies 2xx" },
+  { "method": "GET", "path": "/api/messages", "collection": "messages", "op": "list", "note": "admin read-back, not present on original" }
+]

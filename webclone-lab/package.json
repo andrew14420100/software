@@ -1,0 +1,21 @@
+{
+  "name": "webclone-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unified, authorization-first website reverse-engineering and reconstruction lab (REA + Playwright MCP + Ditto + ai-website-cloner-template).",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "wcl": "bin/wcl.mjs"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@playwright/test": "1.63.0",
+    "playwright": "1.63.0",
+    "pixelmatch": "7.1.0",
+    "pngjs": "7.0.0",
+    "wakaru": "1.14.0"
+  }
+}
